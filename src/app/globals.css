@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-band: #f7f7f7;
+  --color-ink: #1a1a1a;
+  --color-muted: #4d4d4d;
+  --color-plum: #734060;
+  --color-yellow: #edb654;
+  --color-line: #e6e6e6;
+  --font-script: var(--font-sacramento), "Segoe Script", cursive;
+  --font-slab: var(--font-arvo), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-logo: var(--font-instrument), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-outfit), "Segoe UI", sans-serif;
+  --font-nav: var(--font-outfit), "Segoe UI", sans-serif;
+  --font-body: var(--font-bitter), Georgia, "Times New Roman", serif;
+}
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #eadce4;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 3px;
+}
+
+@media (max-width: 639px) {
+  .burger-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 30px;
+    height: 25px;
+    border-top: 2px solid var(--color-muted);
+  }
+
+  .burger-btn::before,
+  .burger-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--color-muted);
+  }
+
+  .burger-btn::before {
+    top: 10px;
+  }
+
+  .burger-btn::after {
+    bottom: 0;
+  }
+}

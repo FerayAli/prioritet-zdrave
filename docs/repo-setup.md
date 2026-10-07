@@ -68,6 +68,6 @@ See [`.gitignore`](../.gitignore) at the repo root (`node_modules`, `.next`, `.e
 
 | Document | Purpose |
 |----------|---------|
-| [`mvp_plan.md`](mvp_plan.md) | Product MVP (when added) |
-| [`visual-phase-1.md`](visual-phase-1.md) | Homepage visual spec (when added) |
-| [`technical-architecture.md`](technical-architecture.md) | Implementation architecture (after visual sign-off) |
+| [`mvp_plan.md`](mvp_plan.md) | Product vision, MVP scope, i18n, phases |
+| [`visual-phase-1.md`](visual-phase-1.md) | Homepage and shell (build first) |
+| [`technical-architecture.md`](technical-architecture.md) | Next.js, content seam, routes (after visual sign-off) |
