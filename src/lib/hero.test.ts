@@ -12,6 +12,14 @@ describe("hero links", () => {
     ]);
   });
 
+  it("hides stories on mobile so the compact row is a pair", () => {
+    expect(
+      heroTiles
+        .filter((tile) => tile.hideOnMobile)
+        .map((tile) => tile.labelKey),
+    ).toEqual(["hero.tile.stories"]);
+  });
+
   it("opens back and mobility with movement and back already selected", () => {
     const back = heroCircles.find((circle) => circle.labelKey === "topic.back");
     expect(back).toBeDefined();
@@ -24,8 +32,9 @@ describe("hero links", () => {
     expect(navLinks.map((link) => link.href)).toEqual([
       "/",
       "/about",
-      "/recipes",
+      "/book",
       "/start-here",
+      "/contact",
       "/search",
     ]);
   });

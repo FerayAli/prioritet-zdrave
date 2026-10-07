@@ -7,6 +7,8 @@ export type HeroLink = {
   query: PostQuery;
   /** CSS object-position when the subject is off-center in a landscape photo */
   imageObjectPosition?: string;
+  /** Keep on desktop; skip in the mobile compact row so the 2-col grid stays even */
+  hideOnMobile?: boolean;
 };
 
 export const heroTiles: HeroLink[] = [
@@ -30,6 +32,7 @@ export const heroTiles: HeroLink[] = [
     labelKey: "hero.tile.stories",
     image: "/images/hero/stories.jpg",
     query: { format: "stories" },
+    hideOnMobile: true,
   },
 ];
 
@@ -95,7 +98,8 @@ export const focusLabelKey: Record<Focus, MessageKey> = {
 export const navLinks: { href: string; labelKey: MessageKey }[] = [
   { href: "/", labelKey: "nav.home" },
   { href: "/about", labelKey: "nav.about" },
-  { href: "/recipes", labelKey: "nav.recipes" },
+  { href: "/book", labelKey: "nav.book" },
   { href: "/start-here", labelKey: "nav.startHere" },
+  { href: "/contact", labelKey: "nav.contacts" },
   { href: "/search", labelKey: "nav.search" },
 ];

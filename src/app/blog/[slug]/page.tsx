@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import { proseMarkdown } from "@/components/markdown-prose";
 import { t } from "@/i18n/messages";
+import { getOilBySlug } from "@/lib/content/oils";
 import { toSearchHref } from "@/lib/content/query";
 import { getPostBySlug, listPosts } from "@/lib/content/posts";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
@@ -79,22 +81,28 @@ export default async function PostPage({
           />
         </div>
       ) : null}
+      {post.oils.length > 0 ? (
+        <p className="mt-4 text-sm text-ink/70">
+          {t("book.oilsUsed")}
+          {": "}
+          {post.oils.map((slug, index) => {
+            const oil = getOilBySlug(slug);
+            return (
+              <span key={slug}>
+                {index > 0 ? ", " : null}
+                <Link
+                  href={`/book/${slug}`}
+                  className="text-plum underline-offset-4 hover:underline"
+                >
+                  {oil?.title ?? slug}
+                </Link>
+              </span>
+            );
+          })}
+        </p>
+      ) : null}
       <div className="mt-8">
-        <ReactMarkdown
-          components={{
-            p: ({ children }) => (
-              <p className="mt-4 text-lg leading-relaxed text-ink/90">{children}</p>
-            ),
-            h2: ({ children }) => (
-              <h2 className="mt-8 font-serif text-2xl font-semibold text-ink">{children}</h2>
-            ),
-            ul: ({ children }) => (
-              <ul className="mt-4 list-disc space-y-1 pl-5 text-lg leading-relaxed">{children}</ul>
-            ),
-          }}
-        >
-          {post.body}
-        </ReactMarkdown>
+        <ReactMarkdown components={proseMarkdown}>{post.body}</ReactMarkdown>
       </div>
     </article>
   );

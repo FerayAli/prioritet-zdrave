@@ -4,8 +4,14 @@ import { t } from "@/i18n/messages";
 import { toSearchHref } from "@/lib/content/query";
 import { heroCircles, heroTiles, type HeroLink } from "@/lib/hero";
 
-const tileLabelClassName =
-  "relative z-10 -mt-4 mx-auto w-fit bg-yellow px-2 py-2 font-body text-[0.6875rem] font-bold tracking-[0.12em] text-white uppercase sm:px-6 sm:text-xs sm:tracking-[0.25em]";
+const tileLabelClassName = {
+  featured:
+    "relative z-10 -mt-4 mx-auto w-fit bg-yellow px-2 py-2 font-body text-[0.6875rem] font-bold tracking-[0.12em] text-white uppercase",
+  compact:
+    "relative z-10 -mt-4 mx-auto max-w-full bg-yellow px-2 py-2 font-body text-[0.625rem] font-bold tracking-normal text-white uppercase",
+  desktop:
+    "relative z-10 -mt-4 mx-auto w-fit bg-yellow px-6 py-2 font-body text-xs font-bold tracking-[0.25em] text-white uppercase",
+} as const;
 
 function HeroTile({
   tile,
@@ -19,8 +25,8 @@ function HeroTile({
   const imageFrameClassName =
     layout === "featured"
       ? "relative block h-80 w-full overflow-hidden"
-      : layout === "compact"
-        ? "relative mx-auto block size-44 overflow-hidden"
+        : layout === "compact"
+        ? "relative mx-auto block aspect-square w-full max-w-56 overflow-hidden"
         : "relative block aspect-[7/10] w-full overflow-hidden";
 
   return (
@@ -50,7 +56,7 @@ function HeroTile({
           }
         />
       </span>
-      <p className={tileLabelClassName}>{t(tile.labelKey)}</p>
+      <p className={tileLabelClassName[layout]}>{t(tile.labelKey)}</p>
     </Link>
   );
 }
@@ -61,6 +67,7 @@ export function Hero() {
   const kicker = splitAt >= 0 ? slogan.slice(0, splitAt) : slogan;
   const script = splitAt >= 0 ? slogan.slice(splitAt + 1).trim() : "";
   const [featuredTile, ...compactTiles] = heroTiles;
+  const mobileCompactTiles = compactTiles.filter((tile) => !tile.hideOnMobile);
 
   return (
     <div>
@@ -82,8 +89,8 @@ export function Hero() {
           <li className="col-span-2 -mx-4 min-w-0 text-center md:hidden">
             <HeroTile tile={featuredTile} layout="featured" priority />
           </li>
-          {compactTiles.map((tile) => (
-            <li key={tile.labelKey} className="min-w-0 text-center md:hidden">
+          {mobileCompactTiles.map((tile) => (
+            <li key={tile.labelKey} className="min-w-0 overflow-visible text-center md:hidden">
               <HeroTile tile={tile} layout="compact" />
             </li>
           ))}

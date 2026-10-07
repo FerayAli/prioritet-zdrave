@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { listOilSlugs } from "@/lib/content/oils";
 import {
   isFocus,
   isFormat,
@@ -18,6 +19,10 @@ export function listPosts(): Post[] {
 
 export function getPostBySlug(slug: string): Post | null {
   return listPosts().find((post) => post.slug === slug) ?? null;
+}
+
+export function listPostsUsingOil(slug: string): Post[] {
+  return listPosts().filter((post) => post.oils.includes(slug));
 }
 
 export function loadPosts(directory: string): Post[] {
@@ -70,9 +75,29 @@ function readPost(filePath: string): Post {
     cover,
     format,
     focus,
+    oils: readOils(data.oils, label),
     everyday: data.everyday === true,
     featured: data.featured === true,
   };
+}
+
+function readOils(value: unknown, label: string): string[] {
+  if (value === undefined) return [];
+  if (!Array.isArray(value)) {
+    throw new Error(`${label}: oils must be a list of oil slugs`);
+  }
+
+  const known = new Set(listOilSlugs());
+
+  return value.map((item) => {
+    if (typeof item !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item)) {
+      throw new Error(`${label}: oils entries must be lowercase slugs`);
+    }
+    if (!known.has(item)) {
+      throw new Error(`${label}: unknown oil "${item}"`);
+    }
+    return item;
+  });
 }
 
 function readFocus(value: unknown, label: string): Focus[] {

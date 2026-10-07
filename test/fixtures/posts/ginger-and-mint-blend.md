@@ -6,10 +6,13 @@ cover: /images/hero/essential-oils.jpg
 format: essential-oils
 focus:
   - digestion
+oils:
+  - ginger
+  - peppermint
 everyday: false
 featured: false
 ---
 
 Sample post for filter checks. Not published content.
 
-This fixture stands in for a digestion blend. It should appear for Essential oils and Digestion, and stay out of Everyday and Most loved.
+This fixture is a digestion recipe. It uses [ginger](/book/ginger) and [peppermint](/book/peppermint) for stomach discomfort. Learn more about each oil in the Book. It should appear for Essential oils and Digestion, and stay out of Everyday and Most loved.

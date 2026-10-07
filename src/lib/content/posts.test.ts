@@ -32,6 +32,11 @@ describe("fixture posts", () => {
     expect(matches).not.toContain("walk-after-lunch");
   });
 
+  it("keeps oil slugs on recipes that name them", () => {
+    const blend = posts.find((post) => post.slug === "ginger-and-mint-blend");
+    expect(blend?.oils).toEqual(["ginger", "peppermint"]);
+  });
+
   it("rejects a fixture that uses an unknown format", () => {
     const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pz-posts-"));
     fs.writeFileSync(
@@ -49,5 +54,26 @@ Sample body.
     );
 
     expect(() => loadPosts(directory)).toThrow(/format/);
+  });
+
+  it("rejects a post that names an oil that is not in the book", () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pz-posts-"));
+    fs.writeFileSync(
+      path.join(directory, "bad.md"),
+      `---
+title: Bad
+date: "2026-01-01"
+excerpt: Nope
+format: recipes
+focus: []
+oils:
+  - not-an-oil
+---
+
+Sample body.
+`,
+    );
+
+    expect(() => loadPosts(directory)).toThrow(/unknown oil/);
   });
 });

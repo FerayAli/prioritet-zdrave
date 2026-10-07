@@ -27,6 +27,7 @@ export type Post = {
   cover?: string;
   format: Format;
   focus: Focus[];
+  oils: string[];
   everyday: boolean;
   featured: boolean;
 };

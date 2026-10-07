@@ -42,10 +42,10 @@ Fonts: logo `font-logo` (Instrument Serif), nav `font-nav` (Outfit 700), kicker 
 
 ## Layout contract
 
-1. **Header** — wordmark left; Home · About · Recipes · Start here · Search icon. Burger + overlay **below `sm`**. Active link: `md:border-plum` 3px. Logo sizes: `w-60 text-[1.71875rem]` / `sm:w-80 sm:text-[2.03125rem]`.
+1. **Header** — wordmark left; Home · About · Book · Start here · Search icon. Burger + overlay **below `sm`**. Active link: `md:border-plum` 3px. Logo sizes: `w-60 text-[1.71875rem]` / `sm:w-80 sm:text-[2.03125rem]`.
 2. **Headline** — kicker (uppercase Arvo, wide tracking) + script line (plum, lowercase) split on the comma in `hero.slogan`.
 3. **Tiles** — four formats: oils, recipes, movement, stories.
-   - Mobile: first tile featured (`col-span-2 -mx-4 h-80`); other three `size-44` in 2-col grid; **white** behind tiles.
+   - Mobile: first tile featured (`col-span-2 -mx-4 h-80`); hide Stories (`hideOnMobile`); remaining compact tiles fill a 2-col pair (`aspect-square w-full`); **white** behind tiles.
    - Desktop (`md+`): four equal `aspect-[7/10]` portraits on `bg-band`.
    - Yellow overlapping labels, uppercase, Bitter.
 4. **Circles** — eight topics from `heroCircles`; `size-[5.5rem]` / `md:size-[6.6rem]`; gray `bg-band` strip; horizontal scroll.
