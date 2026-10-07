@@ -1,3 +1,4 @@
+import type { MessageKey } from "@/i18n/keys";
 import {
   isFocus,
   isFormat,
@@ -60,3 +61,66 @@ export function toSearchHref(query: PostQuery): string {
   const search = params.toString();
   return search ? `/search?${search}` : "/search";
 }
+
+export type SearchChip = {
+  id: string;
+  href: string;
+  labelKey: MessageKey;
+};
+
+export function searchChips(query: PostQuery): SearchChip[] {
+  const chips: SearchChip[] = [];
+
+  if (query.format) {
+    chips.push({
+      id: `format-${query.format}`,
+      href: toSearchHref({ ...query, format: undefined }),
+      labelKey: formatChipKey[query.format],
+    });
+  }
+
+  for (const focus of query.focus ?? []) {
+    chips.push({
+      id: `focus-${focus}`,
+      href: toSearchHref({
+        ...query,
+        focus: (query.focus ?? []).filter((item) => item !== focus),
+      }),
+      labelKey: focusChipKey[focus],
+    });
+  }
+
+  if (query.everyday) {
+    chips.push({
+      id: "everyday",
+      href: toSearchHref({ ...query, everyday: undefined }),
+      labelKey: "topic.everyday",
+    });
+  }
+
+  if (query.featured) {
+    chips.push({
+      id: "featured",
+      href: toSearchHref({ ...query, featured: undefined }),
+      labelKey: "topic.mostLoved",
+    });
+  }
+
+  return chips;
+}
+
+const formatChipKey = {
+  "essential-oils": "hero.tile.oils",
+  recipes: "hero.tile.recipes",
+  movement: "hero.tile.movement",
+  stories: "hero.tile.stories",
+} as const;
+
+const focusChipKey = {
+  "blood-sugar": "topic.bloodSugar",
+  sleep: "topic.sleep",
+  stress: "topic.stress",
+  back: "topic.back",
+  energy: "topic.energy",
+  digestion: "topic.digestion",
+} as const;

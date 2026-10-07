@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parsePostQuery, toSearchHref } from "@/lib/content/query";
+import { parsePostQuery, searchChips, toSearchHref } from "@/lib/content/query";
 
 describe("search query", () => {
   it("reads repeated focus params and flags", () => {
@@ -31,5 +31,19 @@ describe("search query", () => {
     expect(
       toSearchHref({ format: "movement", focus: ["back"] }),
     ).toBe("/search?format=movement&focus=back");
+  });
+
+  it("builds removable chips that drop one filter at a time", () => {
+    expect(
+      searchChips({
+        format: "recipes",
+        focus: ["blood-sugar"],
+        everyday: true,
+      }).map((chip) => chip.href),
+    ).toEqual([
+      "/search?focus=blood-sugar&everyday=1",
+      "/search?format=recipes&everyday=1",
+      "/search?format=recipes&focus=blood-sugar",
+    ]);
   });
 });

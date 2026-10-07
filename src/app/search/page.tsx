@@ -1,9 +1,10 @@
 import { PostList } from "@/components/post-list";
 import { SearchForm } from "@/components/search-form";
+import { SearchToolbar } from "@/components/search-toolbar";
 import { t } from "@/i18n/messages";
 import { filterPosts } from "@/lib/content/filter";
 import { listPosts } from "@/lib/content/posts";
-import { parsePostQuery } from "@/lib/content/query";
+import { parsePostQuery, searchChips } from "@/lib/content/query";
 
 export function generateMetadata() {
   return { title: t("search.title") };
@@ -25,12 +26,24 @@ export default async function SearchPage({
       <p className="mt-4 max-w-2xl text-pretty text-lg leading-relaxed">
         {t("search.intro")}
       </p>
-      <div className="mt-8">
+      <SearchToolbar
+        chips={searchChips(query).map((chip) => {
+          const label = t(chip.labelKey);
+          return {
+            id: chip.id,
+            href: chip.href,
+            label,
+            removeLabel: t("search.removeFilter", { label }),
+          };
+        })}
+        resultCount={t("search.resultCount", { count: String(posts.length) })}
+        refineLabel={t("search.refine")}
+        closeLabel={t("search.closeFilters")}
+        clearLabel={t("search.clearFilters")}
+        clearHref="/search"
+      >
         <SearchForm query={query} />
-      </div>
-      <p className="mt-8 font-slab text-xs uppercase tracking-widest text-muted">
-        {t("search.resultCount", { count: String(posts.length) })}
-      </p>
+      </SearchToolbar>
       <PostList posts={posts} />
     </div>
   );

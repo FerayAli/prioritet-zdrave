@@ -4,7 +4,7 @@ import { focusLabelKey, formatLabelKey } from "@/lib/hero";
 
 export function SearchForm({ query }: { query: PostQuery }) {
   return (
-    <form action="/search" className="bg-band p-5 sm:p-8">
+    <form action="/search">
       <div className="grid gap-8 md:grid-cols-3">
         <fieldset>
           <legend className="font-slab text-sm uppercase tracking-widest text-ink">
