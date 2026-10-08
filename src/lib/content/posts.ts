@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { cache } from "react";
 import matter from "gray-matter";
 import { listOilSlugs } from "@/lib/content/oils";
 import {
@@ -12,22 +13,23 @@ import {
 const fixtureDirectory = path.join(process.cwd(), "test/fixtures/posts");
 const realDirectory = path.join(process.cwd(), "content/posts");
 
-export function listPosts(): Post[] {
+export const listPosts = cache(function listPosts(): Post[] {
   const realFiles = listMarkdown(realDirectory);
   return loadPosts(realFiles.length > 0 ? realDirectory : fixtureDirectory);
-}
+});
 
-export function getPostBySlug(slug: string): Post | null {
+export const getPostBySlug = cache(function getPostBySlug(slug: string): Post | null {
   return listPosts().find((post) => post.slug === slug) ?? null;
-}
+});
 
-export function listPostsUsingOil(slug: string): Post[] {
+export const listPostsUsingOil = cache(function listPostsUsingOil(slug: string): Post[] {
   return listPosts().filter((post) => post.oils.includes(slug));
-}
+});
 
 export function loadPosts(directory: string): Post[] {
+  const knownOils = new Set(listOilSlugs());
   return listMarkdown(directory)
-    .map((filePath) => readPost(filePath))
+    .map((filePath) => readPost(filePath, knownOils))
     .sort(byDateThenTitle);
 }
 
@@ -40,7 +42,7 @@ function listMarkdown(directory: string): string[] {
     .map((name) => path.join(directory, name));
 }
 
-function readPost(filePath: string): Post {
+function readPost(filePath: string, knownOils: Set<string>): Post {
   const slug = path.basename(filePath, ".md");
   const raw = fs.readFileSync(filePath, "utf8");
   const parsed = matter(raw);
@@ -75,25 +77,23 @@ function readPost(filePath: string): Post {
     cover,
     format,
     focus,
-    oils: readOils(data.oils, label),
+    oils: readOils(data.oils, label, knownOils),
     everyday: data.everyday === true,
     featured: data.featured === true,
   };
 }
 
-function readOils(value: unknown, label: string): string[] {
+function readOils(value: unknown, label: string, knownOils: Set<string>): string[] {
   if (value === undefined) return [];
   if (!Array.isArray(value)) {
     throw new Error(`${label}: oils must be a list of oil slugs`);
   }
 
-  const known = new Set(listOilSlugs());
-
   return value.map((item) => {
     if (typeof item !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item)) {
       throw new Error(`${label}: oils entries must be lowercase slugs`);
     }
-    if (!known.has(item)) {
+    if (!knownOils.has(item)) {
       throw new Error(`${label}: unknown oil "${item}"`);
     }
     return item;

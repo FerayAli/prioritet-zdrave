@@ -7,6 +7,8 @@ import { t } from "@/i18n/messages";
 import { getOilBySlug, listOils } from "@/lib/content/oils";
 import { listPostsUsingOil } from "@/lib/content/posts";
 
+export const dynamic = "force-static";
+
 export function generateStaticParams() {
   return listOils().map((oil) => ({ slug: oil.slug }));
 }

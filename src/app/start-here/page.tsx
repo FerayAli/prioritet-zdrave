@@ -4,6 +4,8 @@ import { listPosts } from "@/lib/content/posts";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
 import { quizQuestions, quizResultKeys } from "@/lib/quiz";
 
+export const dynamic = "force-static";
+
 export function generateMetadata() {
   return { title: t("startHere.title") };
 }

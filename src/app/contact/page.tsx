@@ -2,6 +2,8 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { getContactPage } from "@/lib/content/contact";
 
+export const dynamic = "force-static";
+
 export function generateMetadata() {
   const contact = getContactPage();
   return { title: contact.title };

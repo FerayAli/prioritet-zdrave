@@ -3,6 +3,8 @@ import Link from "next/link";
 import { t } from "@/i18n/messages";
 import { groupOilsByAroma, listOils } from "@/lib/content/oils";
 
+export const dynamic = "force-static";
+
 export function generateMetadata() {
   return { title: t("book.title") };
 }
@@ -26,13 +28,15 @@ export default function BookPage() {
               <li key={oil.slug} className="py-5">
                 <Link href={`/book/${oil.slug}`} className="group flex gap-4">
                   {oil.photo ? (
-                    <span className="relative size-20 shrink-0 overflow-hidden bg-band sm:size-24">
+                    <span className="size-20 shrink-0 overflow-hidden bg-band sm:size-24">
                       <Image
                         src={oil.photo}
                         alt=""
-                        fill
+                        width={192}
+                        height={192}
                         sizes="96px"
-                        className="object-cover"
+                        quality={65}
+                        className="size-full object-cover"
                       />
                     </span>
                   ) : null}

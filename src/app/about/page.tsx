@@ -1,5 +1,7 @@
 import { t } from "@/i18n/messages";
 
+export const dynamic = "force-static";
+
 export function generateMetadata() {
   return { title: t("about.title") };
 }

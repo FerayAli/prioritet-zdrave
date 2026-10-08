@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { cache } from "react";
 import matter from "gray-matter";
 
 export type ContactPage = {
@@ -16,13 +17,13 @@ export type ContactPage = {
 const realFile = path.join(process.cwd(), "content/contact.md");
 const fixtureFile = path.join(process.cwd(), "test/fixtures/contact.md");
 
-export function getContactPage(): ContactPage {
+export const getContactPage = cache(function getContactPage(): ContactPage {
   const filePath = fs.existsSync(realFile) ? realFile : fixtureFile;
   if (!fs.existsSync(filePath)) {
     throw new Error("Missing content/contact.md");
   }
   return readContact(filePath);
-}
+});
 
 export function readContact(filePath: string): ContactPage {
   const label = path.basename(filePath);

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { cache } from "react";
 import matter from "gray-matter";
 
 export type Oil = {
@@ -49,18 +50,18 @@ const realDirectory = path.join(process.cwd(), "content/oils");
 const fixtureDirectory = path.join(process.cwd(), "test/fixtures/oils");
 const oilSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-export function listOils(): Oil[] {
+export const listOils = cache(function listOils(): Oil[] {
   const realFiles = listMarkdown(realDirectory);
   return loadOils(realFiles.length > 0 ? realDirectory : fixtureDirectory);
-}
+});
 
-export function getOilBySlug(slug: string): Oil | null {
+export const getOilBySlug = cache(function getOilBySlug(slug: string): Oil | null {
   return listOils().find((oil) => oil.slug === slug) ?? null;
-}
+});
 
-export function listOilSlugs(): string[] {
+export const listOilSlugs = cache(function listOilSlugs(): string[] {
   return listOils().map((oil) => oil.slug);
-}
+});
 
 export function loadOils(directory: string): Oil[] {
   return listMarkdown(directory)
