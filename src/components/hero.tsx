@@ -45,8 +45,8 @@ function HeroTile({
             layout === "featured"
               ? "(max-width: 767px) 100vw, 32px"
               : layout === "compact"
-                ? "(max-width: 767px) 176px, 32px"
-                : "(min-width: 768px) 280px, 32px"
+                ? "(max-width: 767px) 420px, 32px"
+                : "(min-width: 768px) 720px, 32px"
           }
           className="object-cover"
           style={

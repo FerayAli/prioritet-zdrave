@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["gray-matter"],
   images: {
     formats: ["image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    deviceSizes: [640, 750, 828, 1080, 1280, 1600, 1920],
     qualities: [65, 75, 90],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
