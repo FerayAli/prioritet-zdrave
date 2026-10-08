@@ -25,7 +25,7 @@ export default function ContactPage() {
     <article className="mx-auto max-w-6xl px-5 pt-8 sm:px-8 sm:pt-10">
       <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         {contact.photo ? (
-          <div className="relative aspect-[4/3] overflow-hidden lg:sticky lg:top-8">
+          <div className="relative aspect-[4/3] overflow-hidden lg:sticky lg:top-28">
             <Image
               src={contact.photo}
               alt={contact.name}

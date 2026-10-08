@@ -15,4 +15,4 @@ featured: false
 
 Sample post for filter checks. Not published content.
 
-This fixture is a digestion recipe. It uses [ginger](/book/ginger) and [peppermint](/book/peppermint) for stomach discomfort. Learn more about each oil in the Book. It should appear for Essential oils and Digestion, and stay out of Everyday and Most loved.
+This fixture is a digestion recipe. It uses ginger and peppermint for stomach discomfort. Tap an oil name to open it in the Book. It should appear for Essential oils and Digestion, and stay out of Everyday and Most loved.

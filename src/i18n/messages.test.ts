@@ -9,6 +9,9 @@ describe("messages", () => {
     expect(t("footer.disclaimer")).toBe(
       "For education only. Not medical advice.",
     );
+    expect(t("footer.copyright", { year: "2026", name: "prioritet-zdrave" })).toBe(
+      "© 2026 prioritet-zdrave",
+    );
   });
 
   it("fills a result count", () => {

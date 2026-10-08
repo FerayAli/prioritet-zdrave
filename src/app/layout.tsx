@@ -67,7 +67,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-screen min-w-0 flex-col bg-paper font-body text-muted antialiased">
         <SiteHeader />
-        <main className="w-full min-w-0 flex-1 pb-24">
+        <main className="w-full min-w-0 flex-1">
           {children}
         </main>
         <SiteFooter />

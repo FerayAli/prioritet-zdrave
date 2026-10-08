@@ -68,7 +68,7 @@ export default async function OilPage({
         </div>
       ) : null}
       <div className="mt-8">
-        <ReactMarkdown components={proseMarkdown}>{oil.body}</ReactMarkdown>
+        <ReactMarkdown components={proseMarkdown()}>{oil.body}</ReactMarkdown>
       </div>
       {usedIn.length > 0 ? (
         <section className="mt-12">

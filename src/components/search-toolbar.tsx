@@ -100,7 +100,7 @@ export function SearchToolbar({
       ) : null}
 
       {open ? (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-[200] flex justify-end">
           <button
             type="button"
             className="absolute inset-0 bg-ink/30"

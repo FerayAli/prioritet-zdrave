@@ -10,7 +10,7 @@ export function SiteHeader() {
   const search = navLinks.find((link) => link.href === "/search");
 
   return (
-    <header className="relative border-b border-line">
+    <header className="sticky top-0 z-[80] isolate border-b border-line bg-paper">
       <nav
         aria-label={t("nav.main")}
         id="global-navigation"

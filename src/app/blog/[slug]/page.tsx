@@ -2,12 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import { OilChips } from "@/components/oil-chips";
 import { proseMarkdown } from "@/components/markdown-prose";
 import { t } from "@/i18n/messages";
-import { getOilBySlug } from "@/lib/content/oils";
+import { oilsForPost } from "@/lib/content/oil-links";
+import { listOils } from "@/lib/content/oils";
 import { toSearchHref } from "@/lib/content/query";
 import { getPostBySlug, listPosts } from "@/lib/content/posts";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
+
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return listPosts().map((post) => ({ slug: post.slug }));
@@ -31,6 +35,8 @@ export default async function PostPage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+  const catalog = listOils();
+  const mentionedOils = oilsForPost(post, catalog);
 
   const published = new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
@@ -81,28 +87,9 @@ export default async function PostPage({
           />
         </div>
       ) : null}
-      {post.oils.length > 0 ? (
-        <p className="mt-4 text-sm text-ink/70">
-          {t("book.oilsUsed")}
-          {": "}
-          {post.oils.map((slug, index) => {
-            const oil = getOilBySlug(slug);
-            return (
-              <span key={slug}>
-                {index > 0 ? ", " : null}
-                <Link
-                  href={`/book/${slug}`}
-                  className="text-plum underline-offset-4 hover:underline"
-                >
-                  {oil?.title ?? slug}
-                </Link>
-              </span>
-            );
-          })}
-        </p>
-      ) : null}
+      <OilChips oils={mentionedOils} />
       <div className="mt-8">
-        <ReactMarkdown components={proseMarkdown}>{post.body}</ReactMarkdown>
+        <ReactMarkdown components={proseMarkdown(catalog)}>{post.body}</ReactMarkdown>
       </div>
     </article>
   );

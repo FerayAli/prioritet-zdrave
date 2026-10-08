@@ -15,4 +15,4 @@ featured: true
 
 Sample post for filter checks. Not published content.
 
-This fixture stands in for an essential-oil post about winding down in the evening. It uses [lavender](/book/lavender). It should appear for Essential oils, Sleep, Stress, Everyday, and Most loved.
+This fixture stands in for an essential-oil post about winding down in the evening. It uses lavender. It should appear for Essential oils, Sleep, Stress, Everyday, and Most loved.

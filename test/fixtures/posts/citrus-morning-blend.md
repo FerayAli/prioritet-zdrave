@@ -6,10 +6,14 @@ cover: /images/hero/essential-oils.jpg
 format: essential-oils
 focus:
   - energy
+oils:
+  - bergamot
+  - wild-orange
+  - lemon
 everyday: true
 featured: false
 ---
 
 Sample post for filter checks. Not published content.
 
-This fixture stands in for a bright morning blend. It should appear for Essential oils, Energy, and Everyday.
+This fixture stands in for a bright morning blend of bergamot, wild orange, and lemon. It should appear for Essential oils, Energy, and Everyday.

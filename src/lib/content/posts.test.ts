@@ -35,6 +35,9 @@ describe("fixture posts", () => {
   it("keeps oil slugs on recipes that name them", () => {
     const blend = posts.find((post) => post.slug === "ginger-and-mint-blend");
     expect(blend?.oils).toEqual(["ginger", "peppermint"]);
+    expect(
+      posts.find((post) => post.slug === "citrus-morning-blend")?.oils,
+    ).toEqual(["bergamot", "wild-orange", "lemon"]);
   });
 
   it("rejects a fixture that uses an unknown format", () => {
