@@ -97,7 +97,7 @@ export const focusLabelKey: Record<Focus, MessageKey> = {
 
 export const navLinks: { href: string; labelKey: MessageKey }[] = [
   { href: "/", labelKey: "nav.home" },
-  { href: "/about", labelKey: "nav.about" },
+  { href: "/events", labelKey: "nav.events" },
   { href: "/book", labelKey: "nav.book" },
   { href: "/start-here", labelKey: "nav.startHere" },
   { href: "/contact", labelKey: "nav.contacts" },

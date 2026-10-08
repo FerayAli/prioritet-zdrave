@@ -31,7 +31,7 @@ describe("hero links", () => {
   it("lists header routes in Pinch-of-Yum order", () => {
     expect(navLinks.map((link) => link.href)).toEqual([
       "/",
-      "/about",
+      "/events",
       "/book",
       "/start-here",
       "/contact",
