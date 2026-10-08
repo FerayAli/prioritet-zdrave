@@ -114,6 +114,7 @@ const formatChipKey = {
   recipes: "hero.tile.recipes",
   movement: "hero.tile.movement",
   stories: "hero.tile.stories",
+  science: "hero.tile.science",
 } as const;
 
 const focusChipKey = {

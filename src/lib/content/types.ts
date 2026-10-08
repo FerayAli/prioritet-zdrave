@@ -3,6 +3,7 @@ export const formats = [
   "recipes",
   "movement",
   "stories",
+  "science",
 ] as const;
 
 export type Format = (typeof formats)[number];

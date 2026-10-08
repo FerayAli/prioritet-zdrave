@@ -17,6 +17,7 @@ export default function StartHerePage() {
     recipes: t(formatLabelKey.recipes),
     movement: t(formatLabelKey.movement),
     stories: t(formatLabelKey.stories),
+    science: t(formatLabelKey.science),
   };
   const focusLabels = {
     "blood-sugar": t(focusLabelKey["blood-sugar"]),

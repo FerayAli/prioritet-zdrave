@@ -84,6 +84,7 @@ export const formatLabelKey: Record<Format, MessageKey> = {
   recipes: "hero.tile.recipes",
   movement: "hero.tile.movement",
   stories: "hero.tile.stories",
+  science: "hero.tile.science",
 };
 
 export const focusLabelKey: Record<Focus, MessageKey> = {

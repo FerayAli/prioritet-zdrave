@@ -42,6 +42,11 @@ const posts: Post[] = [
     focus: ["stress"],
     featured: true,
   }),
+  post({
+    slug: "study",
+    format: "science",
+    focus: ["sleep"],
+  }),
 ];
 
 describe("filterPosts", () => {
@@ -57,6 +62,15 @@ describe("filterPosts", () => {
     expect(
       filterPosts(posts, { focus: ["stress"] }).map((entry) => entry.slug),
     ).toEqual(["lavender", "story"]);
+  });
+
+  it("keeps science posts out of other formats", () => {
+    expect(
+      filterPosts(posts, { format: "science" }).map((entry) => entry.slug),
+    ).toEqual(["study"]);
+    expect(
+      filterPosts(posts, { format: "stories" }).map((entry) => entry.slug),
+    ).toEqual(["story"]);
   });
 
   it("treats everyday and most loved as separate flags", () => {

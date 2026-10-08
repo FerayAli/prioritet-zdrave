@@ -51,7 +51,9 @@ function readPost(filePath: string, knownOils: Set<string>): Post {
 
   const format = data.format;
   if (typeof format !== "string" || !isFormat(format)) {
-    throw new Error(`${label}: format must be one of essential-oils, recipes, movement, stories`);
+    throw new Error(
+      `${label}: format must be one of essential-oils, recipes, movement, stories, science`,
+    );
   }
 
   const focus = readFocus(data.focus, label);

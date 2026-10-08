@@ -33,6 +33,10 @@ describe("search query", () => {
     ).toBe("/search?format=movement&focus=back");
   });
 
+  it("opens science posts with the science format", () => {
+    expect(toSearchHref({ format: "science" })).toBe("/search?format=science");
+  });
+
   it("builds removable chips that drop one filter at a time", () => {
     expect(
       searchChips({
