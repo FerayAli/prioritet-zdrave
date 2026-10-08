@@ -18,7 +18,7 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="font-logo relative z-10 block w-60 text-[1.71875rem] leading-none tracking-tight text-plum sm:w-80 sm:text-[2.03125rem]"
+          className="font-logo relative z-10 block w-60 shrink-0 whitespace-nowrap text-[1.71875rem] leading-none tracking-tight text-plum sm:w-80 sm:text-[2.03125rem]"
         >
           {t("brand.name")}
         </Link>

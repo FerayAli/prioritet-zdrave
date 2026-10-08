@@ -26,7 +26,7 @@ function isCurrentPath(pathname: string, href: string) {
 }
 
 const navLinkClassName =
-  "mx-2 inline-block px-2 py-2 font-nav text-[0.9375rem] font-bold uppercase tracking-wider no-underline max-sm:mx-0 max-sm:text-base";
+  "mx-2 inline-block shrink-0 whitespace-nowrap px-2 py-2 font-nav text-[0.9375rem] font-bold uppercase tracking-wider no-underline max-lg:mx-0 max-lg:text-base";
 
 export function SiteNav({
   links,
@@ -51,7 +51,7 @@ export function SiteNav({
     <>
       <button
         type="button"
-        className="burger-btn z-10 sm:hidden"
+        className="burger-btn z-20 lg:hidden"
         aria-label={menuLabel}
         aria-expanded={menuOpen}
         aria-controls="site-menu"
@@ -59,14 +59,14 @@ export function SiteNav({
       />
       <ul
         id="site-menu"
-        className={`sm:flex sm:items-center sm:shadow-none max-sm:absolute max-sm:top-[4.75rem] max-sm:left-0 max-sm:z-[1000] max-sm:h-[calc(100vh-4.75rem)] max-sm:w-full max-sm:flex-col max-sm:overflow-y-auto max-sm:bg-white/95 max-sm:px-6 max-sm:pt-4 max-sm:shadow-md ${
-          menuOpen ? "max-sm:flex" : "max-sm:hidden"
+        className={`relative z-20 lg:flex lg:shrink-0 lg:items-center lg:shadow-none max-lg:absolute max-lg:top-full max-lg:left-0 max-lg:z-[1000] max-lg:h-[calc(100vh-100%)] max-lg:w-full max-lg:flex-col max-lg:overflow-y-auto max-lg:bg-white/95 max-lg:px-6 max-lg:pt-4 max-lg:shadow-md ${
+          menuOpen ? "max-lg:flex" : "max-lg:hidden"
         }`}
       >
         {links.map((link) => {
           const current = isCurrentPath(pathname, link.href);
           return (
-            <li key={link.href} className="max-sm:mt-1">
+            <li key={link.href} className="max-lg:mt-1">
               <Link
                 href={link.href}
                 aria-current={current ? "page" : undefined}
@@ -79,12 +79,12 @@ export function SiteNav({
             </li>
           );
         })}
-        <li className="max-sm:mt-1">
+        <li className="max-lg:mt-1">
           <Link
             href={searchHref}
             aria-label={searchLabel}
             aria-current={searchCurrent ? "page" : undefined}
-            className={`ml-2 inline-flex px-2 py-2 max-sm:ml-0 ${
+            className={`ml-2 inline-flex shrink-0 px-2 py-2 max-lg:ml-0 ${
               searchCurrent ? "bg-yellow" : ""
             }`}
           >

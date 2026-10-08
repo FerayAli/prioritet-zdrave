@@ -43,10 +43,10 @@ function HeroTile({
           priority={priority}
           sizes={
             layout === "featured"
-              ? "100vw"
+              ? "(max-width: 767px) 100vw, 32px"
               : layout === "compact"
-                ? "176px"
-                : "(min-width: 768px) 400px, 50vw"
+                ? "(max-width: 767px) 176px, 32px"
+                : "(min-width: 768px) 280px, 32px"
           }
           className="object-cover"
           style={
@@ -87,7 +87,7 @@ export function Hero() {
       <section className="home-hero md:bg-band md:pt-6 md:pb-8 lg:pt-8 lg:pb-10">
         <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-4 px-4 md:grid-cols-4 lg:px-0">
           <li className="col-span-2 -mx-4 min-w-0 text-center md:hidden">
-            <HeroTile tile={featuredTile} layout="featured" priority />
+            <HeroTile tile={featuredTile} layout="featured" />
           </li>
           {mobileCompactTiles.map((tile) => (
             <li key={tile.labelKey} className="min-w-0 overflow-visible text-center md:hidden">

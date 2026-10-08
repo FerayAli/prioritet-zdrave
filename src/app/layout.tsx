@@ -39,6 +39,7 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["600", "700"],
   variable: "--font-cormorant",
+  preload: false,
 });
 
 const instrument = Instrument_Serif({
