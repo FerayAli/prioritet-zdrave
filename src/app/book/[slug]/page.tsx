@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -51,6 +52,18 @@ export default async function OilPage({
         <p className="mt-2 font-nav text-[0.6875rem] font-bold tracking-[0.12em] text-plum uppercase">
           {oil.aroma}
         </p>
+      ) : null}
+      {oil.photo ? (
+        <div className="relative mt-8 aspect-[4/3] overflow-hidden bg-band">
+          <Image
+            src={oil.photo}
+            alt={oil.title}
+            fill
+            priority
+            sizes="(min-width: 768px) 42rem, 100vw"
+            className="object-contain"
+          />
+        </div>
       ) : null}
       <div className="mt-8">
         <ReactMarkdown components={proseMarkdown}>{oil.body}</ReactMarkdown>

@@ -7,6 +7,7 @@ export type Oil = {
   slug: string;
   latin?: string;
   aroma?: string;
+  photo?: string;
   excerpt: string;
   body: string;
 };
@@ -31,7 +32,7 @@ export function groupOilsByAroma(oils: Oil[]): { aroma: string; oils: Oil[] }[] 
     groups.set(aroma, list);
   }
 
-  const ordered = aromaOrder
+  const ordered: { aroma: string; oils: Oil[] }[] = aromaOrder
     .filter((aroma) => groups.has(aroma))
     .map((aroma) => ({ aroma, oils: groups.get(aroma)! }));
 
@@ -82,6 +83,7 @@ export function readOil(filePath: string): Oil {
   const excerpt = requiredString(data.excerpt, label, "excerpt");
   const latin = optionalString(data.latin, label, "latin");
   const aroma = optionalString(data.aroma, label, "aroma");
+  const photo = optionalString(data.photo, label, "photo");
 
   if (!body) {
     throw new Error(`${label}: body is empty`);
@@ -92,6 +94,7 @@ export function readOil(filePath: string): Oil {
     slug,
     latin,
     aroma,
+    photo,
     excerpt,
     body,
   };

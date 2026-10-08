@@ -1,10 +1,10 @@
 ---
-title: "Douglas fir"
-latin: "Pseudotsuga menziesii"
-aroma: "Woody"
-excerpt: "A clean conifer oil that smells like cut evergreen."
+title: Douglas fir
+latin: Pseudotsuga menziesii
+aroma: Woody
+excerpt: A clean conifer oil that smells like cut evergreen.
+photo: /images/oils/douglas-fir.jpg
 ---
-
 Douglas fir is a woody oil (Pseudotsuga menziesii). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

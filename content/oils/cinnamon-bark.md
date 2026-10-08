@@ -1,10 +1,10 @@
 ---
-title: "Cinnamon bark"
-latin: "Cinnamomum zeylanicum"
-aroma: "Spicy"
-excerpt: "True cinnamon bark oil: hot, sweet, and best used in tiny amounts."
+title: Cinnamon bark
+latin: Cinnamomum zeylanicum
+aroma: Spicy
+excerpt: 'True cinnamon bark oil: hot, sweet, and best used in tiny amounts.'
+photo: /images/oils/cinnamon-bark.jpg
 ---
-
 Cinnamon bark is a spicy oil (Cinnamomum zeylanicum). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

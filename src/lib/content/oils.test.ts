@@ -14,6 +14,7 @@ describe("oil book", () => {
     expect(slugs.length).toBeGreaterThan(40);
     expect(getOilBySlug("peppermint")?.title).toBe("Peppermint");
     expect(getOilBySlug("peppermint")?.aroma).toBe("Camphoraceous");
+    expect(getOilBySlug("lavender")?.photo).toBe("/images/oils/lavender.jpg");
   });
 
   it("groups oils by aroma family", () => {

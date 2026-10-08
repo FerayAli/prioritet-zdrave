@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { t } from "@/i18n/messages";
 import { groupOilsByAroma, listOils } from "@/lib/content/oils";
@@ -23,14 +24,27 @@ export default function BookPage() {
           <ul className="mt-4 divide-y divide-line">
             {group.oils.map((oil) => (
               <li key={oil.slug} className="py-5">
-                <Link href={`/book/${oil.slug}`} className="group block">
-                  <h3 className="font-serif text-2xl font-semibold text-ink group-hover:text-plum">
-                    {oil.title}
-                  </h3>
-                  {oil.latin ? (
-                    <p className="mt-1 text-sm italic text-ink/60">{oil.latin}</p>
+                <Link href={`/book/${oil.slug}`} className="group flex gap-4">
+                  {oil.photo ? (
+                    <span className="relative size-20 shrink-0 overflow-hidden bg-band sm:size-24">
+                      <Image
+                        src={oil.photo}
+                        alt=""
+                        fill
+                        sizes="96px"
+                        className="object-cover"
+                      />
+                    </span>
                   ) : null}
-                  <p className="mt-2 leading-relaxed">{oil.excerpt}</p>
+                  <span className="min-w-0">
+                    <h3 className="font-serif text-2xl font-semibold text-ink group-hover:text-plum">
+                      {oil.title}
+                    </h3>
+                    {oil.latin ? (
+                      <p className="mt-1 text-sm italic text-ink/60">{oil.latin}</p>
+                    ) : null}
+                    <p className="mt-2 leading-relaxed">{oil.excerpt}</p>
+                  </span>
                 </Link>
               </li>
             ))}

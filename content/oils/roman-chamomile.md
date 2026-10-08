@@ -1,10 +1,10 @@
 ---
-title: "Roman chamomile"
-latin: "Chamaemelum nobile"
-aroma: "Herbaceous"
-excerpt: "A soft apple-herb oil people use when the house needs to quiet down."
+title: Roman chamomile
+latin: Chamaemelum nobile
+aroma: Herbaceous
+excerpt: A soft apple-herb oil people use when the house needs to quiet down.
+photo: /images/oils/roman-chamomile.jpg
 ---
-
 Roman chamomile is a herbaceous oil (Chamaemelum nobile). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

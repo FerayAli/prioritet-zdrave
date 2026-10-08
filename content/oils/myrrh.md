@@ -1,10 +1,10 @@
 ---
-title: "Myrrh"
-latin: "Commiphora myrrha"
-aroma: "Resinous"
-excerpt: "A dark resin oil, heavier than frankincense."
+title: Myrrh
+latin: Commiphora myrrha
+aroma: Resinous
+excerpt: 'A dark resin oil, heavier than frankincense.'
+photo: /images/oils/myrrh.jpg
 ---
-
 Myrrh is a resinous oil (Commiphora myrrha). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

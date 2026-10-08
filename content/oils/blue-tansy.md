@@ -1,10 +1,10 @@
 ---
-title: "Blue tansy"
-latin: "Tanacetum annuum"
-aroma: "Floral"
-excerpt: "A rare blue-tinged floral oil used in quiet, restoring blends."
+title: Blue tansy
+latin: Tanacetum annuum
+aroma: Floral
+excerpt: 'A rare blue-tinged floral oil used in quiet, restoring blends.'
+photo: /images/oils/blue-tansy.jpg
 ---
-
 Blue tansy is a floral oil (Tanacetum annuum). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

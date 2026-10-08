@@ -1,10 +1,10 @@
 ---
-title: "Wintergreen"
-latin: "Gaultheria procumbens"
-aroma: "Herbaceous"
-excerpt: "A mint-candy herb oil used in massage more than in food-style recipes."
+title: Wintergreen
+latin: Gaultheria procumbens
+aroma: Herbaceous
+excerpt: A mint-candy herb oil used in massage more than in food-style recipes.
+photo: /images/oils/wintergreen.jpg
 ---
-
 Wintergreen is a herbaceous oil (Gaultheria procumbens). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

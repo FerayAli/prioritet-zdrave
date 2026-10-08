@@ -1,10 +1,10 @@
 ---
-title: "Grapefruit"
-latin: "Citrus × paradisi"
-aroma: "Citrus"
-excerpt: "A bright, bitter-citrus peel oil."
+title: Grapefruit
+latin: Citrus × paradisi
+aroma: Citrus
+excerpt: 'A bright, bitter-citrus peel oil.'
+photo: /images/oils/grapefruit.jpg
 ---
-
 Grapefruit is a citrus oil (Citrus × paradisi). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

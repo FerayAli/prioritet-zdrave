@@ -1,0 +1,51 @@
+arborvitae.jpg https://en.wikipedia.org/wiki/Thuja_plicata — Wikimedia/Wikipedia lead image
+basil.jpg https://en.wikipedia.org/wiki/Basil — Wikimedia/Wikipedia lead image
+bergamot.jpg https://en.wikipedia.org/wiki/Bergamot_orange — Wikimedia/Wikipedia lead image
+black-pepper.jpg https://en.wikipedia.org/wiki/Black_pepper — Wikimedia/Wikipedia lead image
+cardamom.jpg https://en.wikipedia.org/wiki/Elettaria_cardamomum — Wikimedia/Wikipedia lead image
+cassia.jpg https://en.wikipedia.org/wiki/Cinnamomum_cassia — Wikimedia/Wikipedia lead image
+cedarwood.jpg https://en.wikipedia.org/wiki/Juniperus_virginiana — Wikimedia/Wikipedia lead image
+cilantro.jpg https://en.wikipedia.org/wiki/Coriander — Wikimedia/Wikipedia lead image
+cinnamon-bark.jpg https://en.wikipedia.org/wiki/Cinnamon — Wikimedia/Wikipedia lead image
+clary-sage.jpg https://en.wikipedia.org/wiki/Salvia_sclarea — Wikimedia/Wikipedia lead image
+clove.jpg https://en.wikipedia.org/wiki/Clove — Wikimedia/Wikipedia lead image
+copaiba.jpg https://en.wikipedia.org/wiki/Copaifera — Wikimedia/Wikipedia lead image
+coriander.jpg https://en.wikipedia.org/wiki/Coriander — Wikimedia/Wikipedia lead image
+cypress.jpg https://en.wikipedia.org/wiki/Cupressus_sempervirens — Wikimedia/Wikipedia lead image
+douglas-fir.jpg https://en.wikipedia.org/wiki/Douglas_fir — Wikimedia/Wikipedia lead image
+eucalyptus.jpg https://en.wikipedia.org/wiki/Eucalyptus — Wikimedia/Wikipedia lead image
+fennel.jpg https://en.wikipedia.org/wiki/Fennel — Wikimedia/Wikipedia lead image
+frankincense.jpg https://en.wikipedia.org/wiki/Frankincense — Wikimedia/Wikipedia lead image
+geranium.jpg https://en.wikipedia.org/wiki/Geranium — Wikimedia/Wikipedia lead image
+ginger.jpg https://en.wikipedia.org/wiki/Ginger — Wikimedia/Wikipedia lead image
+grapefruit.jpg https://en.wikipedia.org/wiki/Grapefruit — Wikimedia/Wikipedia lead image
+helichrysum.jpg https://en.wikipedia.org/wiki/Helichrysum_italicum — Wikimedia/Wikipedia lead image
+jasmine.jpg https://en.wikipedia.org/wiki/Jasminum_grandiflorum — Wikimedia/Wikipedia lead image
+juniper-berry.jpg https://en.wikipedia.org/wiki/Juniper_berry — Wikimedia/Wikipedia lead image
+lavender.jpg https://en.wikipedia.org/wiki/Lavandula_angustifolia — Wikimedia/Wikipedia lead image
+lemon.jpg https://en.wikipedia.org/wiki/Lemon — Wikimedia/Wikipedia lead image
+lemongrass.jpg https://en.wikipedia.org/wiki/Cymbopogon — Wikimedia/Wikipedia lead image
+lime.jpg https://en.wikipedia.org/wiki/Key_lime — Wikimedia/Wikipedia lead image
+marjoram.jpg https://en.wikipedia.org/wiki/Marjoram — Wikimedia/Wikipedia lead image
+melissa.jpg https://en.wikipedia.org/wiki/Lemon_balm — Wikimedia/Wikipedia lead image
+myrrh.jpg https://en.wikipedia.org/wiki/Myrrh — Wikimedia/Wikipedia lead image
+neroli.jpg https://en.wikipedia.org/wiki/Bitter_orange — Wikimedia/Wikipedia lead image
+oregano.jpg https://en.wikipedia.org/wiki/Oregano — Wikimedia/Wikipedia lead image
+patchouli.jpg https://en.wikipedia.org/wiki/Patchouli — Wikimedia/Wikipedia lead image
+peppermint.jpg https://en.wikipedia.org/wiki/Peppermint — Wikimedia/Wikipedia lead image
+petitgrain.jpg https://en.wikipedia.org/wiki/Bitter_orange — Wikimedia/Wikipedia lead image
+spearmint.jpg https://en.wikipedia.org/wiki/Spearmint — Wikimedia/Wikipedia lead image
+tea-tree.jpg https://en.wikipedia.org/wiki/Tea_tree_oil — Wikimedia/Wikipedia lead image
+thyme.jpg https://en.wikipedia.org/wiki/Thymus_vulgaris — Wikimedia/Wikipedia lead image
+wild-orange.jpg https://en.wikipedia.org/wiki/Orange_(fruit) — Wikimedia/Wikipedia lead image
+blue-tansy.jpg https://en.wikipedia.org/wiki/Tansy — Wikimedia thumbnail
+roman-chamomile.jpg https://en.wikipedia.org/wiki/Chamaemelum_nobile — Wikimedia thumbnail
+rose.jpg https://en.wikipedia.org/wiki/Rosa_%C3%97_damascena — Wikimedia thumbnail
+rosemary.jpg https://en.wikipedia.org/wiki/Rosemary — Wikimedia thumbnail
+vetiver.jpg https://en.wikipedia.org/wiki/Chrysopogon_zizanioides — Wikimedia thumbnail
+wintergreen.jpg https://en.wikipedia.org/wiki/Gaultheria_procumbens — Wikimedia thumbnail
+sandalwood.jpg https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=80 — Unsplash License
+siberian-fir.jpg https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1400&q=80 — Unsplash License
+spikenard.jpg https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1400&q=80 — Unsplash License
+tangerine.jpg https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=1400&q=80 — Unsplash License
+ylang-ylang.jpg https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&fit=crop&w=1400&q=80 — Unsplash License

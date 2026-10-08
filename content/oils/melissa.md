@@ -1,10 +1,10 @@
 ---
-title: "Melissa"
-latin: "Melissa officinalis"
-aroma: "Herbaceous"
-excerpt: "Lemon balm oil: lemony herb, used in very small amounts."
+title: Melissa
+latin: Melissa officinalis
+aroma: Herbaceous
+excerpt: 'Lemon balm oil: lemony herb, used in very small amounts.'
+photo: /images/oils/melissa.jpg
 ---
-
 Melissa is a herbaceous oil (Melissa officinalis). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

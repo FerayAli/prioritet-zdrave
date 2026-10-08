@@ -1,10 +1,10 @@
 ---
-title: "Rose"
-latin: "Rosa damascena"
-aroma: "Floral"
-excerpt: "True rose oil: rich, rosy, and used in tiny amounts."
+title: Rose
+latin: Rosa damascena
+aroma: Floral
+excerpt: 'True rose oil: rich, rosy, and used in tiny amounts.'
+photo: /images/oils/rose.jpg
 ---
-
 Rose is a floral oil (Rosa damascena). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

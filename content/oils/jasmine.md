@@ -1,10 +1,10 @@
 ---
-title: "Jasmine"
-latin: "Jasminum grandiflorum"
-aroma: "Floral"
-excerpt: "A rich white-floral oil, more perfume than kitchen spice."
+title: Jasmine
+latin: Jasminum grandiflorum
+aroma: Floral
+excerpt: 'A rich white-floral oil, more perfume than kitchen spice.'
+photo: /images/oils/jasmine.jpg
 ---
-
 Jasmine is a floral oil (Jasminum grandiflorum). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

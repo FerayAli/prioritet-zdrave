@@ -1,10 +1,10 @@
 ---
-title: "Neroli"
-latin: "Citrus × aurantium"
-aroma: "Floral"
-excerpt: "Orange-blossom oil: floral citrus from bitter-orange flowers."
+title: Neroli
+latin: Citrus × aurantium
+aroma: Floral
+excerpt: 'Orange-blossom oil: floral citrus from bitter-orange flowers.'
+photo: /images/oils/neroli.jpg
 ---
-
 Neroli is a floral oil (Citrus × aurantium). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

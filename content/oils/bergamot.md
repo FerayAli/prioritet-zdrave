@@ -1,10 +1,10 @@
 ---
-title: "Bergamot"
-latin: "Citrus bergamia"
-aroma: "Citrus"
-excerpt: "A soft citrus oil from bergamot peel, often used when the mood needs lifting."
+title: Bergamot
+latin: Citrus bergamia
+aroma: Citrus
+excerpt: 'A soft citrus oil from bergamot peel, often used when the mood needs lifting.'
+photo: /images/oils/bergamot.jpg
 ---
-
 Bergamot is a citrus oil (Citrus bergamia). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for

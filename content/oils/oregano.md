@@ -1,10 +1,10 @@
 ---
-title: "Oregano"
-latin: "Origanum vulgare"
-aroma: "Herbaceous"
-excerpt: "A hot kitchen-herb oil, strong enough that recipes use drops, not splashes."
+title: Oregano
+latin: Origanum vulgare
+aroma: Herbaceous
+excerpt: 'A hot kitchen-herb oil, strong enough that recipes use drops, not splashes.'
+photo: /images/oils/oregano.jpg
 ---
-
 Oregano is a herbaceous oil (Origanum vulgare). In this book it is a component: recipes can name it, and this page is the short note for the oil itself.
 
 ## What people use it for
