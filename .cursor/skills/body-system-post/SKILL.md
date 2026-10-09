@@ -4,7 +4,7 @@ description: >-
   Write prioritet-zdrave body-map system posts as Markdown. Use when creating
   or editing a body system note, a body-map guide, content/posts for nervous,
   endocrine, respiratory, cardiovascular, immune, digestive, urinary,
-  musculoskeletal, skin, or women's health, or when the user asks for a system
+  musculoskeletal, skin, women's health, lymphatic, sensory, or when the user asks for a system
   doc in this five-part shape.
 ---
 
@@ -44,7 +44,7 @@ title: A practical map of …
 date: "YYYY-MM-DD"
 excerpt: One honest sentence.
 format: body-map
-system: nervous   # nervous | endocrine | respiratory | cardiovascular | immune | digestive | urinary | musculoskeletal | skin | womens-health
+system: nervous   # nervous | endocrine | respiratory | cardiovascular | immune | lymphatic | digestive | urinary | musculoskeletal | skin | womens-health | sensory
 guide: true       # exactly one guide per system
 focus: []         # only a real overlap: blood-sugar, sleep, stress, back, energy, digestion
 oils: []          # book slugs actually named in the body

@@ -9,6 +9,7 @@ import { oilsForPost } from "@/lib/content/oil-links";
 import { listOils } from "@/lib/content/oils";
 import { toSearchHref } from "@/lib/content/query";
 import { getPostBySlug, listPosts } from "@/lib/content/posts";
+import { BodySystemBadge } from "@/components/body-system-badge";
 import { bodySystemLabelKey } from "@/lib/body-map";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
 import { estimateReadingMinutes } from "@/lib/content/read-time";
@@ -60,7 +61,18 @@ export default async function PostPage({
           {t("post.back")}
         </Link>
       </p>
-      <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
+      {post.system ? (
+        <div className="mt-5 flex items-center gap-3">
+          <BodySystemBadge id={post.system} size="lg" />
+          <Link
+            href="/#body-map"
+            className="font-nav text-xs font-bold tracking-wide text-plum uppercase hover:underline"
+          >
+            {t(bodySystemLabelKey[post.system])}
+          </Link>
+        </div>
+      ) : null}
+      <h1 className={`font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl ${post.system ? "mt-3" : "mt-4"}`}>
         {post.title}
       </h1>
       <p className="mt-3 text-sm text-ink/60">
@@ -72,14 +84,6 @@ export default async function PostPage({
         <Link href={toSearchHref({ format: post.format })} className="underline-offset-4 hover:underline">
           {t(formatLabelKey[post.format])}
         </Link>
-        {post.system ? (
-          <span>
-            {" · "}
-            <Link href="/#body-map" className="underline-offset-4 hover:underline">
-              {t(bodySystemLabelKey[post.system])}
-            </Link>
-          </span>
-        ) : null}
         {post.focus.map((focus) => (
           <span key={focus}>
             {" · "}

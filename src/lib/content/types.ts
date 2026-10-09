@@ -27,11 +27,13 @@ export const bodySystems = [
   "respiratory",
   "cardiovascular",
   "immune",
+  "lymphatic",
   "digestive",
   "urinary",
   "musculoskeletal",
   "skin",
   "womens-health",
+  "sensory",
 ] as const;
 
 export type BodySystem = (typeof bodySystems)[number];

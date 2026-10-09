@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BodySystemIcon } from "@/components/body-system-icon";
+import { Fragment } from "react";
+import { BodySystemBadge } from "@/components/body-system-badge";
 import { t } from "@/i18n/messages";
 import {
-  bodySystemColor,
+  bodyMapRowTops,
+  bodyMapRows,
   bodySystemLabelKey,
-  bodySystemSpots,
   guideHref,
 } from "@/lib/body-map";
 import { toSearchHref } from "@/lib/content/query";
@@ -84,30 +85,33 @@ function BodyFigure({ posts }: { posts: Post[] }) {
       </div>
 
       <ul className="pointer-events-none absolute inset-0 hidden lg:block">
-        {bodySystemSpots.map((spot) => {
-          const href = guideHref(posts, spot.id);
-          if (!href) return null;
-          const label = t(bodySystemLabelKey[spot.id]);
+        {bodyMapRows.map(([left, right], index) => {
+          const top = bodyMapRowTops[index];
+          const leftHref = guideHref(posts, left);
+          const rightHref = guideHref(posts, right);
           return (
-            <li key={spot.id}>
-              <Link
-                href={href}
-                style={{ top: spot.top }}
-                className={`group pointer-events-auto absolute z-10 flex w-[22%] -translate-y-1/2 items-center gap-2 ${
-                  spot.side === "left" ? "left-0 justify-end" : "right-0 justify-start"
-                }`}
-              >
-                {spot.side === "right" ? <IconBadge id={spot.id} /> : null}
-                <span
-                  className={`min-w-0 font-nav text-[0.6875rem] leading-tight font-bold text-ink group-hover:text-plum ${
-                    spot.side === "left" ? "text-right" : "text-left"
-                  }`}
-                >
-                  {label}
-                </span>
-                {spot.side === "left" ? <IconBadge id={spot.id} /> : null}
-              </Link>
-            </li>
+            <Fragment key={left}>
+              {leftHref ? (
+                <li>
+                  <SystemLink
+                    href={leftHref}
+                    id={left}
+                    side="left"
+                    top={top}
+                  />
+                </li>
+              ) : null}
+              {rightHref ? (
+                <li>
+                  <SystemLink
+                    href={rightHref}
+                    id={right}
+                    side="right"
+                    top={top}
+                  />
+                </li>
+              ) : null}
+            </Fragment>
           );
         })}
       </ul>
@@ -119,7 +123,7 @@ function BodyFigure({ posts }: { posts: Post[] }) {
           return (
             <li key={id}>
               <Link href={href} className="group flex items-center gap-2.5">
-                <IconBadge id={id} />
+                <BodySystemBadge id={id} size="sm" />
                 <span className="font-nav text-xs leading-tight font-bold text-ink group-hover:text-plum">
                   {t(bodySystemLabelKey[id])}
                 </span>
@@ -132,15 +136,36 @@ function BodyFigure({ posts }: { posts: Post[] }) {
   );
 }
 
-function IconBadge({ id }: { id: BodySystem }) {
-  const color = bodySystemColor[id];
+function SystemLink({
+  href,
+  id,
+  side,
+  top,
+}: {
+  href: string;
+  id: BodySystem;
+  side: "left" | "right";
+  top: string;
+}) {
+  const label = t(bodySystemLabelKey[id]);
   return (
-    <span
-      className="flex size-12 shrink-0 items-center justify-center rounded-full border bg-paper shadow-sm"
-      style={{ color, borderColor: color }}
+    <Link
+      href={href}
+      style={{ top }}
+      className={`group pointer-events-auto absolute z-10 flex w-[22%] -translate-y-1/2 items-center gap-2 ${
+        side === "left" ? "left-0 justify-end" : "right-0 justify-start"
+      }`}
     >
-      <BodySystemIcon id={id} />
-    </span>
+      {side === "right" ? <BodySystemBadge id={id} /> : null}
+      <span
+        className={`min-w-0 font-nav text-[0.6875rem] leading-tight font-bold text-ink group-hover:text-plum ${
+          side === "left" ? "text-right" : "text-left"
+        }`}
+      >
+        {label}
+      </span>
+      {side === "left" ? <BodySystemBadge id={id} /> : null}
+    </Link>
   );
 }
 
