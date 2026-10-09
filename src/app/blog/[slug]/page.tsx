@@ -9,6 +9,7 @@ import { oilsForPost } from "@/lib/content/oil-links";
 import { listOils } from "@/lib/content/oils";
 import { toSearchHref } from "@/lib/content/query";
 import { getPostBySlug, listPosts } from "@/lib/content/posts";
+import { bodySystemLabelKey } from "@/lib/body-map";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
 import { estimateReadingMinutes } from "@/lib/content/read-time";
 
@@ -71,6 +72,14 @@ export default async function PostPage({
         <Link href={toSearchHref({ format: post.format })} className="underline-offset-4 hover:underline">
           {t(formatLabelKey[post.format])}
         </Link>
+        {post.system ? (
+          <span>
+            {" · "}
+            <Link href="/#body-map" className="underline-offset-4 hover:underline">
+              {t(bodySystemLabelKey[post.system])}
+            </Link>
+          </span>
+        ) : null}
         {post.focus.map((focus) => (
           <span key={focus}>
             {" · "}

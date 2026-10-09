@@ -4,7 +4,16 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { filterPosts } from "@/lib/content/filter";
 import { loadPosts } from "@/lib/content/posts";
+import { bodySystems } from "@/lib/content/types";
 import { heroCircles, heroTiles } from "@/lib/hero";
+
+const howItWorksSections = [
+  "## How does the system work?",
+  "## Emotions and psychosomatics",
+  "## Aromatherapy",
+  "## Daily care",
+  "## Scientific sources",
+];
 
 const fixtureDirectory = path.join(process.cwd(), "test/fixtures/posts");
 
@@ -79,4 +88,98 @@ Sample body.
 
     expect(() => loadPosts(directory)).toThrow(/unknown oil/);
   });
+
+  it("rejects a body-map note without a system", () => {
+    const directory = writePost(
+      `---
+title: Bad
+date: "2026-01-01"
+excerpt: Nope
+format: body-map
+---
+
+Sample body.
+`,
+    );
+
+    expect(() => loadPosts(directory)).toThrow(/system/);
+  });
+
+  it("rejects an unknown system and a system on another format", () => {
+    expect(() =>
+      loadPosts(
+        writePost(
+          `---
+title: Bad
+date: "2026-01-01"
+excerpt: Nope
+format: body-map
+system: aura
+guide: true
+---
+
+Sample body.
+`,
+        ),
+      ),
+    ).toThrow(/system/);
+
+    expect(() =>
+      loadPosts(
+        writePost(
+          `---
+title: Bad
+date: "2026-01-01"
+excerpt: Nope
+format: science
+system: skin
+---
+
+Sample body.
+`,
+        ),
+      ),
+    ).toThrow(/body-map/);
+  });
+
+  it("requires exactly one guide when a system has notes", () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pz-posts-"));
+    fs.writeFileSync(
+      path.join(directory, "one.md"),
+      `---
+title: One
+date: "2026-01-01"
+excerpt: Nope
+format: body-map
+system: skin
+---
+
+Sample body.
+`,
+    );
+
+    expect(() => loadPosts(directory)).toThrow(/guide/);
+  });
 });
+
+describe("published body map", () => {
+  const posts = loadPosts(path.join(process.cwd(), "content/posts"));
+
+  it("gives every system one guide in the how-it-works shape", () => {
+    const guides = posts.filter((post) => post.guide);
+    expect(guides.map((post) => post.system).sort()).toEqual([...bodySystems].sort());
+
+    for (const post of guides) {
+      expect(post.format, post.slug).toBe("body-map");
+      for (const heading of howItWorksSections) {
+        expect(post.body, `${post.slug} ${heading}`).toContain(heading);
+      }
+    }
+  });
+});
+
+function writePost(markdown: string): string {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "pz-posts-"));
+  fs.writeFileSync(path.join(directory, "bad.md"), markdown);
+  return directory;
+}

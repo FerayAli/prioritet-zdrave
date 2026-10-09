@@ -10,6 +10,7 @@ function post(overrides: Partial<Post> & Pick<Post, "slug" | "format">): Post {
     body: "Sample post for filter checks.",
     focus: [],
     oils: [],
+    guide: false,
     everyday: false,
     featured: false,
     ...overrides,

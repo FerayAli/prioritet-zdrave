@@ -4,9 +4,14 @@ import { cache } from "react";
 import matter from "gray-matter";
 import { listOilSlugs } from "@/lib/content/oils";
 import {
+  bodySystems,
+  isBodySystem,
   isFocus,
   isFormat,
+  formats,
+  type BodySystem,
   type Focus,
+  type Format,
   type Post,
 } from "@/lib/content/types";
 
@@ -28,9 +33,11 @@ export const listPostsUsingOil = cache(function listPostsUsingOil(slug: string):
 
 export function loadPosts(directory: string): Post[] {
   const knownOils = new Set(listOilSlugs());
-  return listMarkdown(directory)
+  const posts = listMarkdown(directory)
     .map((filePath) => readPost(filePath, knownOils))
     .sort(byDateThenTitle);
+  validateBodyMapGuides(posts);
+  return posts;
 }
 
 function listMarkdown(directory: string): string[] {
@@ -51,11 +58,10 @@ function readPost(filePath: string, knownOils: Set<string>): Post {
 
   const format = data.format;
   if (typeof format !== "string" || !isFormat(format)) {
-    throw new Error(
-      `${label}: format must be one of essential-oils, recipes, movement, stories, science`,
-    );
+    throw new Error(`${label}: format must be one of ${formats.join(", ")}`);
   }
 
+  const system = readSystem(data.system, format, label);
   const focus = readFocus(data.focus, label);
   const title = requiredString(data.title, label, "title");
   const excerpt = requiredString(data.excerpt, label, "excerpt");
@@ -78,6 +84,8 @@ function readPost(filePath: string, knownOils: Set<string>): Post {
     body,
     cover,
     format,
+    system,
+    guide: readGuide(data.guide, system, label),
     focus,
     oils: readOils(data.oils, label, knownOils),
     everyday: data.everyday === true,
@@ -100,6 +108,57 @@ function readOils(value: unknown, label: string, knownOils: Set<string>): string
     }
     return item;
   });
+}
+
+function readSystem(
+  value: unknown,
+  format: Format,
+  label: string,
+): BodySystem | undefined {
+  if (value === undefined || value === "") {
+    if (format === "body-map") {
+      throw new Error(`${label}: body-map posts need a system`);
+    }
+    return undefined;
+  }
+
+  if (typeof value !== "string" || !isBodySystem(value)) {
+    throw new Error(`${label}: system must be one of ${bodySystems.join(", ")}`);
+  }
+
+  if (format !== "body-map") {
+    throw new Error(`${label}: system is only used on body-map posts`);
+  }
+
+  return value;
+}
+
+function readGuide(
+  value: unknown,
+  system: BodySystem | undefined,
+  label: string,
+): boolean {
+  if (value === undefined) return false;
+  if (typeof value !== "boolean") {
+    throw new Error(`${label}: guide must be true or false`);
+  }
+  if (value && !system) {
+    throw new Error(`${label}: guide requires a system`);
+  }
+  return value;
+}
+
+function validateBodyMapGuides(posts: Post[]): void {
+  for (const system of bodySystems) {
+    const matches = posts.filter((post) => post.system === system);
+    if (matches.length === 0) continue;
+    const guides = matches.filter((post) => post.guide).length;
+    if (guides !== 1) {
+      throw new Error(
+        `body map: "${system}" needs exactly one guide post, found ${guides}`,
+      );
+    }
+  }
 }
 
 function readFocus(value: unknown, label: string): Focus[] {

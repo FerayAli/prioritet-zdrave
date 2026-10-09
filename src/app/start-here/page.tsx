@@ -18,6 +18,7 @@ export default function StartHerePage() {
     movement: t(formatLabelKey.movement),
     stories: t(formatLabelKey.stories),
     science: t(formatLabelKey.science),
+    "body-map": t(formatLabelKey["body-map"]),
   };
   const focusLabels = {
     "blood-sugar": t(focusLabelKey["blood-sugar"]),

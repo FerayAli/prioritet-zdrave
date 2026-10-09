@@ -1,3 +1,4 @@
+import { BodyMap } from "@/components/body-map";
 import { FeaturedPosts, StartHereCue } from "@/components/featured-posts";
 import { Hero } from "@/components/hero";
 import { ScienceAbout } from "@/components/science-about";
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <BodyMap posts={listPosts()} />
       <FeaturedPosts posts={featured} />
       <ScienceAbout aboutPhoto={contact.photo} aboutPhotoAlt={contact.name} />
       <StartHereCue />

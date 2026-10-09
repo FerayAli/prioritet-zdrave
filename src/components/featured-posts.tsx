@@ -11,6 +11,7 @@ const formatPillClassName: Record<Format, string> = {
   movement: "bg-yellow",
   stories: "bg-plum",
   science: "bg-plum",
+  "body-map": "bg-plum",
 };
 
 export function FeaturedPosts({ posts }: { posts: Post[] }) {

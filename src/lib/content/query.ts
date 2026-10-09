@@ -115,6 +115,7 @@ const formatChipKey = {
   movement: "hero.tile.movement",
   stories: "hero.tile.stories",
   science: "hero.tile.science",
+  "body-map": "format.bodyMap",
 } as const;
 
 const focusChipKey = {
