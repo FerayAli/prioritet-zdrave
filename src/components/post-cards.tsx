@@ -1,15 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Post } from "@/lib/content/types";
+import type { Focus, Format } from "@/lib/content/types";
+
+export type PostCardItem = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  cover?: string;
+  format: Format;
+  focus: Focus[];
+  everyday: boolean;
+  featured: boolean;
+};
 
 export function PostCards({
   posts,
   emptyLabel,
   tagsFor,
 }: {
-  posts: Post[];
+  posts: PostCardItem[];
   emptyLabel: string;
-  tagsFor: (post: Post) => string;
+  tagsFor: (post: PostCardItem) => string;
 }) {
   if (posts.length === 0) {
     return <p className="mt-8 text-lg text-ink/75">{emptyLabel}</p>;

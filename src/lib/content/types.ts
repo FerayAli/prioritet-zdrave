@@ -61,6 +61,7 @@ export type PostQuery = {
   focus?: Focus[];
   everyday?: boolean;
   featured?: boolean;
+  page?: number;
 };
 
 export const applicationMethods = [

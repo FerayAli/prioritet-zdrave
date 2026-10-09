@@ -51,7 +51,7 @@ export default async function SearchPage({
           <SearchForm key={toSearchHref(query)} query={query} />
         </SearchToolbar>
       </Suspense>
-      <SearchResultList results={results} />
+      <SearchResultList results={results} query={query} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import { PostCards } from "@/components/post-cards";
 import { t } from "@/i18n/messages";
-import type { Post } from "@/lib/content/types";
+import type { PostCardItem } from "@/components/post-cards";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
 
-export function PostList({ posts }: { posts: Post[] }) {
+export function PostList({ posts }: { posts: PostCardItem[] }) {
   return (
     <PostCards
       posts={posts}

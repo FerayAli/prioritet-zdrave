@@ -34,6 +34,12 @@ export function parsePostQuery(params: SearchParams): PostQuery {
   if (valuesOf(params, "everyday").includes("1")) query.everyday = true;
   if (valuesOf(params, "featured").includes("1")) query.featured = true;
 
+  const pageRaw = valuesOf(params, "page").find((value) => value.length > 0);
+  if (pageRaw) {
+    const page = Number.parseInt(pageRaw, 10);
+    if (Number.isFinite(page) && page > 1) query.page = page;
+  }
+
   return query;
 }
 
@@ -57,6 +63,7 @@ export function toSearchHref(query: PostQuery): string {
   for (const focus of query.focus ?? []) params.append("focus", focus);
   if (query.everyday) params.set("everyday", "1");
   if (query.featured) params.set("featured", "1");
+  if (query.page && query.page > 1) params.set("page", String(query.page));
 
   const search = params.toString();
   return search ? `/search?${search}` : "/search";
