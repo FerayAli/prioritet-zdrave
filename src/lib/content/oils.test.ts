@@ -25,8 +25,9 @@ describe("oil book", () => {
     );
   });
 
-  it("lists recipe posts that use an oil", () => {
+  it("lists posts that use an oil", () => {
     expect(listPostsUsingOil("peppermint").map((post) => post.slug)).toEqual([
+      "peppermint-headache-and-ibs",
       "ginger-and-mint-blend",
     ]);
   });

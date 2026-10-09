@@ -1,0 +1,22 @@
+slug,pmid,doi,study_type,notes
+chemotype-why-same-plant-differs,42800396,10.1016/j.compbiolchem.2026.109429,in_vitro_docking,Lippia alba citral-type leaf EO; flagship
+chemotype-why-same-plant-differs,,,in_vitro,PMC11031784 AChE chemotypes
+lavender-anxiety-what-reviews-say,31655395,,systematic_review_meta,PRISMA lavender anxiety
+lavender-anxiety-what-reviews-say,31743795,,systematic_review_meta,Lavender aromatherapy meta-analysis
+lavender-sleep-inhalation-evidence,31655395,,systematic_review_meta,Inhalation subset from reviews
+bergamot-stress-small-trials,25824404,,rct,Bergamot aromatherapy stress
+peppermint-headache-and-ibs,21472117,,rct_meta,IBS peppermint oil capsules
+peppermint-headache-and-ibs,12037748,,rct,Topical peppermint tension headache
+eucalyptus-cineole-breathing,32837899,,rapid_review,EO viral respiratory infections
+tea-tree-skin-antimicrobial-limits,12438273,,review,Tea tree oil dermatology
+oregano-thyme-antimicrobial-in-lab,31096294,,review,Antimicrobial EO constituents
+rosemary-cognition-what-we-know,21862714,,rct,Rosemary aroma cognition
+lemon-citrus-mood-arousal,28337712,,rct,Lemon aroma mood
+frankincense-boswellia-inflammation,25403547,,review,Boswellia anti-inflammatory
+ginger-oil-vs-ginger-plant,10793599,,rct,Ginger nausea (root; contrast with EO)
+melissa-lemon-balm-calm,16444613,,rct,Melissa anxiety
+melissa-lemon-balm-calm,16904863,,rct,Valerian lemon balm sleep context
+clary-sage-stress-research,23140150,,rct,Clary sage stress cortisol
+immune-claims-and-reviews,31835699,,review,PMC6943609 immune parameters
+how-to-read-an-essential-oil-study,,10.3390/molecules28134800,review,PMC10377445 pharmacology overview
+safety-sensitization-phototoxicity,26923160,,review,Essential oil contact dermatitis

@@ -15,6 +15,6 @@ describe("messages", () => {
   });
 
   it("fills a result count", () => {
-    expect(t("search.resultCount", { count: "3" })).toBe("3 posts");
+    expect(t("search.resultCount", { count: "3" })).toBe("3 results");
   });
 });

@@ -32,7 +32,12 @@ export function proseMarkdown(oils: Oil[] = []): Components {
         );
       }
       return (
-        <a href={href} className={linkClassName}>
+        <a
+          href={href}
+          className={linkClassName}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           {children}
         </a>
       );

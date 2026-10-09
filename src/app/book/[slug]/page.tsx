@@ -6,6 +6,8 @@ import { proseMarkdown } from "@/components/markdown-prose";
 import { t } from "@/i18n/messages";
 import { getOilBySlug, listOils } from "@/lib/content/oils";
 import { listPostsUsingOil } from "@/lib/content/posts";
+import { listProtocolsUsingOil } from "@/lib/content/protocols";
+import { listSymptomsUsingOil } from "@/lib/content/symptoms";
 
 export const dynamic = "force-static";
 
@@ -32,7 +34,9 @@ export default async function OilPage({
   const oil = getOilBySlug(slug);
   if (!oil) notFound();
 
-  const usedIn = listPostsUsingOil(oil.slug);
+  const usedInPosts = listPostsUsingOil(oil.slug);
+  const usedInSymptoms = listSymptomsUsingOil(oil.slug);
+  const usedInProtocols = listProtocolsUsingOil(oil.slug);
 
   return (
     <article className="mx-auto max-w-2xl px-5 pt-8 sm:px-8 sm:pt-10">
@@ -70,13 +74,51 @@ export default async function OilPage({
       <div className="mt-8">
         <ReactMarkdown components={proseMarkdown()}>{oil.body}</ReactMarkdown>
       </div>
-      {usedIn.length > 0 ? (
+      {usedInSymptoms.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="font-serif text-2xl font-semibold text-ink">
+            {t("book.usedInSymptoms")}
+          </h2>
+          <ul className="mt-4 space-y-2">
+            {usedInSymptoms.map((symptom) => (
+              <li key={symptom.slug}>
+                <Link
+                  href={`/symptoms/${symptom.slug}`}
+                  className="text-plum underline-offset-4 hover:underline"
+                >
+                  {symptom.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+      {usedInProtocols.length > 0 ? (
+        <section className="mt-12">
+          <h2 className="font-serif text-2xl font-semibold text-ink">
+            {t("book.usedInProtocols")}
+          </h2>
+          <ul className="mt-4 space-y-2">
+            {usedInProtocols.map((protocol) => (
+              <li key={protocol.slug}>
+                <Link
+                  href={`/protocols/${protocol.slug}`}
+                  className="text-plum underline-offset-4 hover:underline"
+                >
+                  {protocol.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+      {usedInPosts.length > 0 ? (
         <section className="mt-12">
           <h2 className="font-serif text-2xl font-semibold text-ink">
             {t("book.usedIn")}
           </h2>
           <ul className="mt-4 space-y-2">
-            {usedIn.map((post) => (
+            {usedInPosts.map((post) => (
               <li key={post.slug}>
                 <Link
                   href={`/blog/${post.slug}`}

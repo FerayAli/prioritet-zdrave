@@ -40,6 +40,53 @@ export type PostQuery = {
   featured?: boolean;
 };
 
+export const applicationMethods = [
+  "diffuse",
+  "topical-diluted",
+  "inhale",
+] as const;
+
+export type ApplicationMethod = (typeof applicationMethods)[number];
+
+export type BlendLine = {
+  slug: string;
+  drops: number;
+};
+
+export type Symptom = {
+  title: string;
+  slug: string;
+  excerpt: string;
+  body: string;
+  focus: Focus[];
+  oils: BlendLine[];
+  schedule: string;
+  method: ApplicationMethod;
+  relatedProtocol?: string;
+};
+
+export type ProtocolPhase = {
+  title: string;
+  duration: string;
+  oils: BlendLine[];
+  schedule: string;
+  method: ApplicationMethod;
+};
+
+export type Protocol = {
+  title: string;
+  slug: string;
+  excerpt: string;
+  body: string;
+  focus: Focus[];
+  severity?: string;
+  phases: ProtocolPhase[];
+};
+
+export function isApplicationMethod(value: string): value is ApplicationMethod {
+  return (applicationMethods as readonly string[]).includes(value);
+}
+
 export function isFormat(value: string): value is Format {
   return (formats as readonly string[]).includes(value);
 }

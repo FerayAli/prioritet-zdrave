@@ -10,6 +10,7 @@ import { listOils } from "@/lib/content/oils";
 import { toSearchHref } from "@/lib/content/query";
 import { getPostBySlug, listPosts } from "@/lib/content/posts";
 import { focusLabelKey, formatLabelKey } from "@/lib/hero";
+import { estimateReadingMinutes } from "@/lib/content/read-time";
 
 export const dynamic = "force-static";
 
@@ -45,6 +46,9 @@ export default async function PostPage({
     timeZone: "UTC",
   }).format(new Date(`${post.date}T00:00:00Z`));
 
+  const readMinutes = estimateReadingMinutes(post.body);
+  const readTime = t("post.readMinutes", { minutes: String(readMinutes) });
+
   return (
     <article className="mx-auto max-w-2xl px-5 pt-8 sm:px-8 sm:pt-10">
       <p>
@@ -58,7 +62,11 @@ export default async function PostPage({
       <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
         {post.title}
       </h1>
-      <p className="mt-3 text-sm text-ink/60">{published}</p>
+      <p className="mt-3 text-sm text-ink/60">
+        {published}
+        <span aria-hidden="true"> · </span>
+        <span>{readTime}</span>
+      </p>
       <p className="mt-3 text-sm text-ink/70">
         <Link href={toSearchHref({ format: post.format })} className="underline-offset-4 hover:underline">
           {t(formatLabelKey[post.format])}

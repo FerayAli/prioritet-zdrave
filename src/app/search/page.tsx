@@ -1,11 +1,10 @@
 import { Suspense } from "react";
-import { PostList } from "@/components/post-list";
 import { SearchForm } from "@/components/search-form";
+import { SearchResultList } from "@/components/search-result-list";
 import { SearchToolbar } from "@/components/search-toolbar";
 import { t } from "@/i18n/messages";
-import { filterPosts } from "@/lib/content/filter";
-import { listPosts } from "@/lib/content/posts";
 import { parsePostQuery, searchChips, toSearchHref } from "@/lib/content/query";
+import { searchContent, searchResultCount } from "@/lib/content/search-results";
 
 export function generateMetadata() {
   return { title: t("search.title") };
@@ -17,7 +16,8 @@ export default async function SearchPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const query = parsePostQuery(await searchParams);
-  const posts = filterPosts(listPosts(), query);
+  const results = searchContent(query);
+  const resultCount = searchResultCount(results);
 
   return (
     <div className="mx-auto max-w-6xl px-5 pt-8 sm:px-8 sm:pt-10">
@@ -42,7 +42,7 @@ export default async function SearchPage({
               removeLabel: t("search.removeFilter", { label }),
             };
           })}
-          resultCount={t("search.resultCount", { count: String(posts.length) })}
+          resultCount={t("search.resultCount", { count: String(resultCount) })}
           refineLabel={t("search.refine")}
           closeLabel={t("search.closeFilters")}
           clearLabel={t("search.clearFilters")}
@@ -51,7 +51,7 @@ export default async function SearchPage({
           <SearchForm key={toSearchHref(query)} query={query} />
         </SearchToolbar>
       </Suspense>
-      <PostList posts={posts} />
+      <SearchResultList results={results} />
     </div>
   );
 }

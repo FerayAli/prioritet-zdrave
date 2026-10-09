@@ -77,7 +77,15 @@ export function SiteFooter() {
           <p>
             {t("footer.copyright", { year, name: t("brand.name") })}
           </p>
-          <p>{t("footer.disclaimer")}</p>
+          <p className="max-w-xl text-right sm:text-left">
+            {t("footer.disclaimer")}{" "}
+            <Link
+              href="/disclaimer"
+              className="text-plum underline-offset-4 hover:underline"
+            >
+              {t("footer.disclaimerReadMore")}
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
