@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useId, useState, type ReactNode } from "react";
 
 function FilterIcon() {
   return (
@@ -36,10 +37,17 @@ export function SearchToolbar({
   closeLabel: string;
   clearLabel: string;
   clearHref: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const titleId = useId();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const searchKey = `${pathname}?${searchParams.toString()}`;
+
+  useEffect(() => {
+    setOpen(false);
+  }, [searchKey]);
 
   useEffect(() => {
     if (!open) return;
