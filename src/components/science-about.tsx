@@ -6,10 +6,10 @@ import { toSearchHref } from "@/lib/content/query";
 const scienceImage = "/images/home/science.jpg";
 
 const filledCtaClassName =
-  "mt-6 inline-flex items-center bg-plum px-5 py-2.5 font-nav text-[0.6875rem] font-bold tracking-[0.18em] text-white uppercase md:hover:opacity-80";
+  "mt-6 inline-flex items-center rounded-md bg-plum px-5 py-2.5 font-nav text-[0.6875rem] font-bold tracking-[0.18em] text-white uppercase md:hover:opacity-80";
 
 const outlineCtaClassName =
-  "mt-6 inline-flex items-center border border-plum px-5 py-2.5 font-nav text-[0.6875rem] font-bold tracking-[0.18em] text-ink uppercase md:hover:opacity-80";
+  "mt-6 inline-flex items-center rounded-md border border-plum px-5 py-2.5 font-nav text-[0.6875rem] font-bold tracking-[0.18em] text-ink uppercase md:hover:opacity-80";
 
 export function ScienceAbout({
   aboutPhoto,
@@ -31,7 +31,7 @@ export function ScienceAbout({
               {t("home.science.cta")}
             </Link>
           </div>
-          <span className="relative block aspect-[4/3] w-full overflow-hidden">
+          <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-lg">
             <Image
               src={scienceImage}
               alt=""
@@ -52,7 +52,7 @@ export function ScienceAbout({
             </Link>
           </div>
           {aboutPhoto ? (
-            <span className="relative block aspect-[4/3] w-full overflow-hidden">
+            <span className="relative block aspect-[4/3] w-full overflow-hidden rounded-lg">
               <Image
                 src={aboutPhoto}
                 alt={aboutPhotoAlt}

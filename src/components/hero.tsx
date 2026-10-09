@@ -24,10 +24,10 @@ function HeroTile({
 }) {
   const imageFrameClassName =
     layout === "featured"
-      ? "relative block h-80 w-full overflow-hidden"
+      ? "relative block h-80 w-full overflow-hidden rounded-lg"
         : layout === "compact"
-        ? "relative mx-auto block aspect-square w-full max-w-56 overflow-hidden"
-        : "relative block aspect-[7/10] w-full overflow-hidden";
+        ? "relative mx-auto block aspect-square w-full max-w-56 overflow-hidden rounded-lg"
+        : "relative block aspect-[7/10] w-full overflow-hidden rounded-lg";
 
   return (
     <Link
@@ -105,26 +105,26 @@ export function Hero() {
         </ul>
 
         <div className="mx-auto mt-6 max-w-6xl bg-band px-4 pt-4 pb-4 md:mt-0 md:pb-0 lg:px-0">
-          <ul className="flex w-full gap-x-6 overflow-x-auto py-4">
+          <ul className="flex w-full gap-x-6 overflow-x-auto py-4 md:justify-center md:gap-x-8">
             {heroCircles.map((circle) => (
               <li
                 key={circle.labelKey}
-                className="w-[5.5rem] shrink-0 grow text-center md:w-[6.6rem]"
+                className="w-[4.75rem] shrink-0 text-center md:w-[5.5rem]"
               >
                 <Link
                   href={toSearchHref(circle.query)}
-                  className="flex flex-col items-center md:hover:opacity-60"
+                  className="group flex flex-col items-center md:hover:opacity-60"
                 >
-                  <span className="relative mb-2 block size-[5.5rem] overflow-hidden rounded-full md:size-[6.6rem]">
+                  <span className="relative mb-2 block size-[4.75rem] overflow-hidden rounded-full ring-2 ring-paper shadow-sm md:size-[5.5rem] group-hover:ring-plum/40">
                     <Image
                       src={circle.image}
                       alt=""
                       fill
-                      sizes="(min-width: 768px) 106px, 88px"
-                      className="object-cover"
+                      sizes="(min-width: 768px) 88px, 76px"
+                      className="object-cover saturate-[0.85]"
                     />
                   </span>
-                  <span className="font-nav text-sm leading-tight font-bold text-ink">
+                  <span className="font-nav text-[0.8125rem] leading-tight font-bold text-ink group-hover:text-plum">
                     {t(circle.labelKey)}
                   </span>
                 </Link>
